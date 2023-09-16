@@ -23,7 +23,6 @@ const AboutNavigator = () => {
             <Stack.Screen
                 name='About'
                 component={AboutScreen}
-                options={{ title: 'About' }}
             />
         </Stack.Navigator>
     )
@@ -37,7 +36,7 @@ const ContactNavigator = () => {
             <Stack.Screen
                 name='Contact'
                 component={ContactScreen}
-                options={{ title: 'Contact' }}
+                options={{ title: 'Contact Us' }}
             />
         </Stack.Navigator>
     )
@@ -105,7 +104,6 @@ const Main = () => {
                 <Drawer.Screen
                     name='About'
                     component={AboutNavigator}
-                    options={{ title: 'About' }}
                 />
                 <Drawer.Screen
                     name='Contact'
