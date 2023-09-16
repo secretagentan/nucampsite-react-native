@@ -5,16 +5,14 @@ import { PARTNERS } from '../shared/partners'
 
 const Mission = () => {
     return (
-        <Card wrapperStyle={{ margin: 20 }}>
-            <Card.Title title='Mission'>
+        <Card>
+            <Card.Title>
                 Our Mission
             </Card.Title>
             <Card.Divider />
-            <View>
-                <Text style={{ marginBottom: 10 }}>
-                    We present a curated database of the best campsites in the vast woods and backcountry of the World Wide Web Wilderness. We increase access to adventure for the public while promoting safe and respectful use of resources. The expert wilderness trekkers on our staff personally verify each campsite to make sure that they are up to our standards. We also present a platform for campers to share reviews on campsites they have visited with each other.
-                </Text>
-            </View>
+            <Text style={{ margin: 10 }}>
+                We present a curated database of the best campsites in the vast woods and backcountry of the World Wide Web Wilderness. We increase access to adventure for the public while promoting safe and respectful use of resources. The expert wilderness trekkers on our staff personally verify each campsite to make sure that they are up to our standards. We also present a platform for campers to share reviews on campsites they have visited with each other.
+            </Text>
         </Card>
     )
 };
@@ -27,7 +25,7 @@ const AboutScreen = () => {
             <Mission />
 
             <Card>
-                <Card.Title title='Community Partners'>
+                <Card.Title>
                     Community Partners
                 </Card.Title>
                 <Card.Divider />

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { ScrollView, View, Text } from 'react-native'
 import { Card } from 'react-native-elements'
 
@@ -6,7 +5,7 @@ const ContactScreen = () => {
     return (
         <ScrollView>
             <Card wrapperStyle={{ margin: 20 }}>
-                <Card.Title title='Contact Information'>
+                <Card.Title>
                     Contact Information
                 </Card.Title>
                 <Card.Divider />
