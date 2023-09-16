@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { CAMPSITES } from '../shared/campsites';
-import DirectoryScreen from './DirectoryScreen';
 import { View } from 'react-native';
+import { CAMPSITES } from '../shared/campsites';
 import CampsiteInfoScreen from './CampsiteInfoScreen';
+import DirectoryScreen from './DirectoryScreen';
 
 const Main = () => {
     const [campsites, setCampsites] = useState(CAMPSITES);
@@ -10,10 +10,19 @@ const Main = () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <DirectoryScreen campsites={campsites} onPress={campsiteId => setSelectedCampsiteId(campsiteId)} />;
-            <CampsiteInfoScreen campsite={campsites.filter(campsite => campsite.id === selectedCampsiteId)[0]}></CampsiteInfoScreen>
+            <DirectoryScreen
+                campsites={campsites}
+                onPress={(campsiteId) => setSelectedCampsiteId(campsiteId)}
+            />
+            <CampsiteInfoScreen
+                campsite={
+                    campsites.filter(
+                        (campsite) => campsite.id === selectedCampsiteId
+                    )[0]
+                }
+            />
         </View>
-    )
+    );
 };
 
 export default Main;
