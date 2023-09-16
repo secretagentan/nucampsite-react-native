@@ -19,20 +19,8 @@ const Mission = () => {
     )
 };
 
-const FeaturedPartner = ({ partner }) => {
-    if (partner) {
-        return (
-            <ListItem key={partner.id}>
-
-            </ListItem>
-        )
-    }
-    return <View />;
-}
 const AboutScreen = () => {
     const [partners, setPartners] = useState(PARTNERS);
-
-    const featuredPartner = partners.map((partner) => partner.featured);
 
     return (
         <ScrollView>
@@ -43,7 +31,6 @@ const AboutScreen = () => {
                     Community Partners
                 </Card.Title>
                 <Card.Divider />
-
                 {
                     partners.map((partner) => {
                         return (
@@ -60,10 +47,7 @@ const AboutScreen = () => {
                             </ListItem>
                         )
                     })
-
-
                 }
-
             </Card>
         </ScrollView>
     )
