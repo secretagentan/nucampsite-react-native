@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { FlatList } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
-import { useState } from 'react';
 import { CAMPSITES } from '../shared/campsites';
 
 const DirectoryScreen = ({ navigation }) => {
@@ -8,7 +8,10 @@ const DirectoryScreen = ({ navigation }) => {
 
     const renderDirectoryItem = ({ item: campsite }) => {
         return (
-            <ListItem onPress={() => navigation.navigate('CampsiteInfo', { campsite })}
+            <ListItem
+                onPress={() =>
+                    navigation.navigate('CampsiteInfo', { campsite })
+                }
             >
                 <Avatar source={campsite.image} rounded />
                 <ListItem.Content>
@@ -17,7 +20,7 @@ const DirectoryScreen = ({ navigation }) => {
                         {campsite.description}
                     </ListItem.Subtitle>
                 </ListItem.Content>
-            </ListItem >
+            </ListItem>
         );
     };
     return (
