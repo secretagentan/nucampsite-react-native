@@ -5,7 +5,7 @@ const HomeScreen = () => {
         <View>
             <Text>Home Screen</Text>
         </View>
-    )
-}
+    );
+};
 
-export default HomeScreen
+export default HomeScreen;
