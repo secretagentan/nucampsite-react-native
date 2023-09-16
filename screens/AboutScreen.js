@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import { ScrollView, Text } from 'react-native'
 import { Card, Avatar, ListItem } from 'react-native-elements'
 import { PARTNERS } from '../shared/partners'
 
