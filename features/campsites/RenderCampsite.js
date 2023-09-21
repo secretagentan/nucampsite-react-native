@@ -1,14 +1,11 @@
-import { Text, View } from 'react-native';
-import { Card } from 'react-native-elements';
-import { StyleSheet } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { StyleSheet, Text, View } from 'react-native';
+import { Card, Icon } from 'react-native-elements';
 
 const RenderCampsite = (props) => {
     const { campsite } = props;
-
     if (campsite) {
         return (
-            <Card style={styles.cardContainer}>
+            <Card containerStyle={styles.cardContainer}>
                 <Card.Image source={campsite.image}>
                     <View style={{ justifyContent: 'center', flex: 1 }}>
                         <Text
