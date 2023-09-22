@@ -38,7 +38,6 @@ const AboutScreen = () => {
             </ScrollView>
         );
     }
-
     if (partners.errMess) {
         return (
             <ScrollView>
@@ -51,7 +50,6 @@ const AboutScreen = () => {
             </ScrollView>
         );
     }
-
     return (
         <ScrollView>
             <Mission />

@@ -8,17 +8,15 @@ const FeaturedItem = (props) => {
     const { item } = props;
 
     if (props.isLoading) {
-        return <Loading />
+        return <Loading />;
     }
-
     if (props.errMess) {
         return (
             <View>
                 <Text>{props.errMess}</Text>
             </View>
-        )
+        );
     }
-
     if (item) {
         return (
             <Card containerStyle={{ padding: 0 }}>
@@ -57,17 +55,17 @@ const HomeScreen = () => {
         <ScrollView>
             <FeaturedItem
                 item={featCampsite}
-                isLoading={campsites.loading}
+                isLoading={campsites.isLoading}
                 errMess={campsites.errMess}
             />
             <FeaturedItem
                 item={featPromotion}
-                isLoading={promotions.loading}
+                isLoading={promotions.isLoading}
                 errMess={promotions.errMess}
             />
             <FeaturedItem
                 item={featPartner}
-                isLoading={partners.loading}
+                isLoading={partners.isLoading}
                 errMess={partners.errMess}
             />
         </ScrollView>
