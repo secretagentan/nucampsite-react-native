@@ -1,15 +1,7 @@
 import { useState } from 'react';
-import {
-    Text,
-    View,
-    ScrollView,
-    StyleSheet,
-    Switch,
-    Button
-} from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Switch, Button } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { DateTimePicker } from '@react-native-community/datetimepicker';
-import { onChange } from 'react-native-reanimated';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const ReservationScreen = () => {
     const [campers, setCampers] = useState(1);
@@ -24,7 +16,9 @@ const ReservationScreen = () => {
     };
 
     const handleReservation = () => {
-        console.log(campers, hikeIn, date);
+        console.log('campers:', campers);
+        console.log('hikeIn:', hikeIn);
+        console.log('date:', date);
         setCampers(1);
         setHikeIn(false);
         setDate(new Date());
@@ -48,7 +42,6 @@ const ReservationScreen = () => {
                     <Picker.Item label='6' value={6} />
                 </Picker>
             </View>
-
             <View style={styles.formRow}>
                 <Text style={styles.formLabel}>Hike In?</Text>
                 <Switch
@@ -58,7 +51,6 @@ const ReservationScreen = () => {
                     onValueChange={(value) => setHikeIn(value)}
                 />
             </View>
-
             <View style={styles.formRow}>
                 <Text style={styles.formLabel}>Date:</Text>
                 <Button
@@ -68,7 +60,6 @@ const ReservationScreen = () => {
                     accessibilityLabel='Tap me to select a reservation date'
                 />
             </View>
-
             {showCalendar && (
                 <DateTimePicker
                     style={styles.formItem}
@@ -78,7 +69,6 @@ const ReservationScreen = () => {
                     onChange={onDateChange}
                 />
             )}
-
             <View style={styles.formRow}>
                 <Button
                     onPress={() => handleReservation()}
@@ -88,8 +78,8 @@ const ReservationScreen = () => {
                 />
             </View>
         </ScrollView>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     formRow: {
