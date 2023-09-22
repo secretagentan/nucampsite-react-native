@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { Text, View, ScrollView, StyleSheet, Switch, Button, Modal } from 'react-native';
+import {
+    Text,
+    View,
+    ScrollView,
+    StyleSheet,
+    Switch,
+    Button,
+    Modal
+} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -20,7 +28,6 @@ const ReservationScreen = () => {
         console.log('campers:', campers);
         console.log('hikeIn:', hikeIn);
         console.log('date:', date);
-
         setShowModal(!showModal);
     };
 
@@ -29,7 +36,8 @@ const ReservationScreen = () => {
         setHikeIn(false);
         setDate(new Date());
         setShowCalendar(false);
-    }
+    };
+
     return (
         <ScrollView>
             <View style={styles.formRow}>
@@ -82,7 +90,6 @@ const ReservationScreen = () => {
                     accessibilityLabel='Tap me to search for available campsites to reserve'
                 />
             </View>
-
             <Modal
                 animationType='slide'
                 transparent={false}
@@ -93,15 +100,15 @@ const ReservationScreen = () => {
                     <Text style={styles.modalTitle}>
                         Search Campsite Reservations
                     </Text>
-
+                    <Text style={styles.modalText}>
+                        Number of Campers: {campers}
+                    </Text>
                     <Text style={styles.modalText}>
                         Hike-In?: {hikeIn ? 'Yes' : 'No'}
                     </Text>
-
                     <Text style={styles.modalText}>
                         Date: {date.toLocaleDateString('en-US')}
                     </Text>
-
                     <Button
                         onPress={() => {
                             setShowModal(!showModal);
@@ -110,10 +117,8 @@ const ReservationScreen = () => {
                         color='#5637DD'
                         title='Close'
                     />
-
                 </View>
             </Modal>
-
         </ScrollView>
     );
 };
