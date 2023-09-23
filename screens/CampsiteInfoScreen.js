@@ -86,7 +86,7 @@ const CampsiteInfoScreen = ({ route }) => {
             >
                 <View style={styles.modal}>
                     <Rating
-                        showRating={true}
+                        showRating
                         startingValue={rating}
                         imageSize={40}
                         onFinishRating={(rating) => setRating(rating)}
