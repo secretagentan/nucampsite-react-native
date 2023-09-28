@@ -11,27 +11,29 @@ const FavoritesScreen = ({ navigation }) => {
     const favorites = useSelector((state) => state.favorites);
 
     const renderFavoriteItem = ({ item: campsite }) => {
-        <ListItem
-            onPress={() =>
-                navigation.navigate('Directory', {
-                    screen: 'CampsiteInfo',
-                    params: { campsite }
-                })
-            }
-        >
-            <Avatar rounded source={{ uri: baseUrl + campsite.image }} />
-
-            <ListItem.Content>
-                <ListItem.Title>{campsite.name}</ListItem.Title>
-                <ListItem.Subtitle>{campsite.description}</ListItem.Subtitle>
-            </ListItem.Content>
-        </ListItem>
-    }
+        return (
+            <ListItem
+                onPress={() =>
+                    navigation.navigate('Directory', {
+                        screen: 'CampsiteInfo',
+                        params: { campsite }
+                    })
+                }
+            >
+                <Avatar rounded source={{ uri: baseUrl + campsite.image }} />
+                <ListItem.Content>
+                    <ListItem.Title>{campsite.name}</ListItem.Title>
+                    <ListItem.Subtitle>
+                        {campsite.description}
+                    </ListItem.Subtitle>
+                </ListItem.Content>
+            </ListItem>
+        );
+    };
 
     if (isLoading) {
         return <Loading />;
     }
-
     if (errMess) {
         return (
             <View>
@@ -39,7 +41,6 @@ const FavoritesScreen = ({ navigation }) => {
             </View>
         );
     }
-
     return (
         <FlatList
             data={campsitesArray.filter((campsite) =>
@@ -48,7 +49,7 @@ const FavoritesScreen = ({ navigation }) => {
             renderItem={renderFavoriteItem}
             keyExtractor={(item) => item.id.toString()}
         />
-    )
-}
+    );
+};
 
 export default FavoritesScreen;
