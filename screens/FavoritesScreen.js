@@ -1,18 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { View, FlatList, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+    View,
+    FlatList,
+    Text,
+    TouchableOpacity,
+    StyleSheet
+} from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
 import Loading from '../components/LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { toggleFavorite } from '../features/favorites/favoritesSlice';
 
-const dispatch = useDispatch();
-
 const FavoritesScreen = ({ navigation }) => {
     const { campsitesArray, isLoading, errMess } = useSelector(
         (state) => state.campsites
     );
     const favorites = useSelector((state) => state.favorites);
+    const dispatch = useDispatch();
 
     const renderFavoriteItem = ({ item: campsite }) => {
         return (
