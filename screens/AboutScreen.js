@@ -59,7 +59,11 @@ const AboutScreen = () => {
     }
     return (
         <ScrollView>
-            <Animatable.View>
+            <Animatable.View
+                animation='fadeInDown'
+                duration={2000}
+                delay={1000}
+            >
                 <Mission />
                 <Card>
                     <Card.Title>Community Partners</Card.Title>

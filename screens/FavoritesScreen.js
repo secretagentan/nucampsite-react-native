@@ -31,13 +31,14 @@ const FavoritesScreen = ({ navigation }) => {
                             Alert.alert(
                                 'Delete Favorite?',
                                 'Are you sure you wish to delete the favorite campsite ' +
-                                campsite.name + '?',
+                                campsite.name +
+                                '?',
                                 [
                                     {
                                         text: 'Cancel',
                                         onPress: () =>
                                             console.log(
-                                                campsite.name + ': Not Deleted'
+                                                campsite.name + 'Not Deleted'
                                             ),
                                         style: 'cancel'
                                     },
@@ -92,7 +93,7 @@ const FavoritesScreen = ({ navigation }) => {
         );
     }
     return (
-        <Animatable.View>
+        <Animatable.View animation='fadeInRightBig' duration={2000}>
             <FlatList
                 data={campsitesArray.filter((campsite) =>
                     favorites.includes(campsite.id)
