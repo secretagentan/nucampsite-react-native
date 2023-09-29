@@ -1,9 +1,9 @@
-import { Animated, Text, View } from 'react-native';
+import { useEffect, useRef } from 'react';
+import { Text, View, Animated } from 'react-native';
 import { Card } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import Loading from '../components/LoadingComponent';
-import { useEffect, useRef } from 'react';
 
 const FeaturedItem = (props) => {
     const { item } = props;
@@ -45,9 +45,7 @@ const HomeScreen = () => {
     const campsites = useSelector((state) => state.campsites);
     const promotions = useSelector((state) => state.promotions);
     const partners = useSelector((state) => state.partners);
-
     const scaleValue = useRef(new Animated.Value(0)).current;
-
     const scaleAnimation = Animated.timing(scaleValue, {
         toValue: 1,
         duration: 1500,
