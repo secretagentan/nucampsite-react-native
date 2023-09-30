@@ -11,7 +11,7 @@ const RenderCampsite = (props) => {
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderEnd: (e, gestureState) => {
-            console.log(gestureState);
+            console.log('pan responder end', gestureState);
             if (isLeftSwipe(gestureState)) {
                 Alert.alert(
                     'Add Favorite',
