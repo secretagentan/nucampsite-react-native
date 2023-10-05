@@ -27,18 +27,20 @@ const ReservationScreen = () => {
     };
 
     const handleReservation = () => {
-        console.log('campers:', campers);
-        console.log('hikeIn:', hikeIn);
-        console.log('date:', date);
-        // setShowModal(!showModal);
+        const message = `Number of Campers: ${campers}
+                            \nHike-In? ${hikeIn}
+                            \nDate: ${date.toLocaleDateString('en-US')}`;
         Alert.alert(
             'Begin Search?',
-            `Number of Campers: ${campers} \n \n Hike-In? ${hikeIn} \n \n Date: ${date.toLocaleDateString('en-US')}`,
+            message,
             [
                 {
                     text: 'Cancel',
-                    style: 'cancel',
-                    onPress: () => resetForm()
+                    onPress: () => {
+                        console.log('Reservation Search Canceled');
+                        resetForm();
+                    },
+                    style: 'cancel'
                 },
                 {
                     text: 'OK',
@@ -51,7 +53,10 @@ const ReservationScreen = () => {
                 }
             ],
             { cancelable: false }
-        )
+        );
+        console.log('campers:', campers);
+        console.log('hikeIn:', hikeIn);
+        console.log('date:', date);
     };
 
     const resetForm = () => {
@@ -78,18 +83,16 @@ const ReservationScreen = () => {
                 },
                 trigger: null
             });
-        }
+        };
 
         let permissions = await Notifications.getPermissionsAsync();
-
         if (!permissions.granted) {
             permissions = await Notifications.requestPermissionsAsync();
         }
-
         if (permissions.granted) {
             sendNotification();
         }
-    }
+    };
 
     return (
         <ScrollView>
