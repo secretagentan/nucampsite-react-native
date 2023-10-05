@@ -12,7 +12,6 @@ const LoginScreen = () => {
         console.log('username:', username);
         console.log('password:', password);
         console.log('remember:', remember);
-
         if (remember) {
             SecureStore.setItemAsync(
                 'userinfo',
@@ -20,29 +19,24 @@ const LoginScreen = () => {
                     username,
                     password
                 })
-            ).catch((error) => console.log('Could not save user info', error))
+            ).catch((error) => console.log('Could not save user info', error));
         } else {
-            SecureStore.deleteItemAsync('userinfo')
-                .catch((error) => console.log('Could not delete user info', error));
+            SecureStore.deleteItemAsync('userinfo').catch((error) =>
+                console.log('Could not delete user info', error)
+            );
         }
     };
 
     useEffect(() => {
-        scaleAnimation.start();
-    }, []);
-
-    useEffect(() => {
         SecureStore.getItemAsync('userinfo').then((userdata) => {
             const userinfo = JSON.parse(userdata);
-
             if (userinfo) {
                 setUsername(userinfo.username);
                 setPassword(userinfo.password);
                 setRemember(true);
             }
         });
-    },)
-
+    }, []);
 
     return (
         <View style={styles.container}>
@@ -77,8 +71,8 @@ const LoginScreen = () => {
                 />
             </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -100,4 +94,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LoginScreen
+export default LoginScreen;
