@@ -1,5 +1,12 @@
 import { useRef } from 'react';
-import { StyleSheet, Text, View, PanResponder, Alert, Share } from 'react-native';
+import {
+    StyleSheet,
+    Text,
+    View,
+    PanResponder,
+    Alert,
+    Share
+} from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { baseUrl } from '../../shared/baseUrl';
 import * as Animatable from 'react-native-animatable';
@@ -62,7 +69,7 @@ const RenderCampsite = (props) => {
                 dialogTitle: 'Share ' + title
             }
         );
-    }
+    };
 
     if (campsite) {
         return (
