@@ -10,9 +10,7 @@ const ContactScreen = () => {
             subject: 'Inquiry',
             body: 'To whom it may concern:'
         });
-    }
-
-
+    };
 
     return (
         <ScrollView>
