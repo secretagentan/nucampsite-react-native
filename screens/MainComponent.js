@@ -22,7 +22,7 @@ import { fetchPromotions } from '../features/promotions/promotionsSlice';
 import { fetchComments } from '../features/comments/commentsSlice';
 import FavoritesScreen from './FavoritesScreen';
 import LoginScreen from './LoginScreen';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/core';
 
 const Drawer = createDrawerNavigator();
 
@@ -153,6 +153,7 @@ const LoginNavigator = () => {
                 name='Login'
                 component={LoginScreen}
                 options={({ navigation, route }) => ({
+                    headerTitle: getFocusedRouteNameFromRoute(route),
                     headerLeft: () => (
                         <Icon
                             name={
@@ -165,8 +166,7 @@ const LoginNavigator = () => {
                             iconStyle={styles.stackIcon}
                             onPress={() => navigation.toggleDrawer()}
                         />
-                    ),
-                    headerTitle: getFocusedRouteNameFromRoute(route)
+                    )
                 })}
             />
         </Stack.Navigator>

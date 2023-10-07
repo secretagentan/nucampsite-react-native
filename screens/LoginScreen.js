@@ -66,6 +66,9 @@ const LoginTab = ({ navigation }) => {
             />
             <View style={styles.formButton}>
                 <Button
+                    onPress={() => handleLogin()}
+                    title='Login'
+                    color='#5637DD'
                     icon={
                         <Icon
                             name='sign-in'
@@ -74,9 +77,6 @@ const LoginTab = ({ navigation }) => {
                             iconStyle={{ marginRight: 10 }}
                         />
                     }
-                    onPress={() => handleLogin()}
-                    title='Login'
-                    color='#5637DD'
                     buttonStyle={{ backgroundColor: '#5637DD' }}
                 />
             </View>
@@ -148,7 +148,7 @@ const LoginScreen = () => {
                 }}
             />
         </Tab.Navigator>
-    )
+    );
 };
 
 const styles = StyleSheet.create({
