@@ -1,4 +1,12 @@
-import { Image, Platform, StyleSheet, Text, View, Alert, ToastAndroid } from 'react-native';
+import {
+    Image,
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+    Alert,
+    ToastAndroid
+} from 'react-native';
 import Constants from 'expo-constants';
 import CampsiteInfoScreen from './CampsiteInfoScreen';
 import DirectoryScreen from './DirectoryScreen';
@@ -247,35 +255,33 @@ const Main = () => {
 
         const unsubscribeNetInfo = NetInfo.addEventListener(
             (connectionInfo) => {
-                handleConnectivityChange(connectionInfo)
+                handleConnectivityChange(connectionInfo);
             }
         );
 
         return unsubscribeNetInfo;
-    }, [])
+    }, []);
 
     const handleConnectivityChange = (connectionInfo) => {
         let connectionMsg = 'You are now connected to an active network.';
-
         switch (connectionInfo.type) {
             case 'none':
-                connectionMsg = 'No network connection is active.'
+                connectionMsg = 'No network connection is active.';
                 break;
             case 'unknown':
-                connectionMsg = 'The network connection state is now unknown.'
+                connectionMsg = 'The network connection state is now unknown.';
                 break;
             case 'cellular':
-                connectionMsg = 'You are now connected to a cellular network.'
+                connectionMsg = 'You are now connected to a cellular network.';
                 break;
             case 'wifi':
-                connectionMsg = 'You are now connected to a WiFi network.'
+                connectionMsg = 'You are now connected to a WiFi network.';
                 break;
         }
-
         Platform.OS === 'ios'
-            ? Alert.alert('Connection change: ', connectionMsg)
+            ? Alert.alert('Connection change:', connectionMsg)
             : ToastAndroid.show(connectionMsg, ToastAndroid.LONG);
-    }
+    };
 
     return (
         <View
