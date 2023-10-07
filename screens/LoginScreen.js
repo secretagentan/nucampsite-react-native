@@ -118,7 +118,6 @@ const RegisterTab = () => {
             remember
         };
         console.log(JSON.stringify(userInfo));
-
         if (remember) {
             SecureStore.setItemAsync(
                 'userinfo',
@@ -202,7 +201,7 @@ const RegisterTab = () => {
                 </View>
             </View>
         </ScrollView>
-    )
+    );
 };
 
 const Tab = createBottomTabNavigator();
