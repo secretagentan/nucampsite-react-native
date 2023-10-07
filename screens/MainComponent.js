@@ -240,7 +240,36 @@ const Main = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        NetInfo.fetch().then((connectionInfo) => {
+        showNetInfo();
+
+        // const unsubscribeNetInfo = NetInfo.addEventListener(
+        //     (connectionInfo) => {
+        //         handleConnectivityChange(connectionInfo);
+        //     }
+        // );
+
+        // return unsubscribeNetInfo;
+    }, []);
+
+    // const showNetInfo = async () => {
+    //     NetInfo.fetch().then((connectionInfo) => {
+    //         Platform.OS === 'ios'
+    //             ? Alert.alert(
+    //                 'Initial Network Connectivity Type:',
+    //                 connectionInfo.type
+    //             )
+    //             : ToastAndroid.show(
+    //                 'Initial Network Connectivity Type: ' +
+    //                 connectionInfo.type,
+    //                 ToastAndroid.LONG
+    //             );
+    //     })
+    // };
+
+    const showNetInfo = async () => {
+        const connectionInfo = await NetInfo.fetch();
+
+        if (connectionInfo) {
             Platform.OS === 'ios'
                 ? Alert.alert(
                     'Initial Network Connectivity Type:',
@@ -251,16 +280,8 @@ const Main = () => {
                     connectionInfo.type,
                     ToastAndroid.LONG
                 );
-        });
-
-        const unsubscribeNetInfo = NetInfo.addEventListener(
-            (connectionInfo) => {
-                handleConnectivityChange(connectionInfo);
-            }
-        );
-
-        return unsubscribeNetInfo;
-    }, []);
+        }
+    };
 
     const handleConnectivityChange = (connectionInfo) => {
         let connectionMsg = 'You are now connected to an active network.';
